@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="app-header">
+  <div>
+    <a href="#" target="_blank" class="positronx"
+      >Britannica Knowledge Systems</a
+    >
+  </div>
+  <span class="nav-tool-items" *ngIf="isLoggedIn$ | async as isLoggedIn">
+    <span *ngIf="isLoggedIn" mat-button routerLinkActive="active"
+      ><span *ngIf="authService.email()" style="margin-right: 20px">{{
+        authService.email()
+      }}</span></span
+    >
+    <a
+      *ngIf="isLoggedIn"
+      (click)="onLogout()"
+      mat-button
+      mat-raised-button
+      routerLink="login"
+      routerLinkActive="active"
+      >Sign Out</a
+    >
+  </span>
+</mat-toolbar>
